@@ -53,8 +53,8 @@
 
 #include <QtCore/QMap>
 #include <QtCore/QObject>
-#include <QtMqtt/QMqttClient>
-#include <QtMqtt/QMqttSubscription>
+#include <QtMqtt/qmqttclient.h>
+#include <QtMqtt/qmqttsubscription.h>
 #include <QtCharts/QAbstractSeries>
 #include <QDateTime>
 #include <QVector>
