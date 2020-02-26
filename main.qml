@@ -39,7 +39,7 @@ ApplicationWindow {
         id: client
         clientId: "Qt_MQTT_Dashboard" //change this for android, multiple clients w/same name are a problem
         username: "pi"
-        password: "D3vi@ntart"
+        password: "<your_password>"
         cleanSession: true
     }
 
