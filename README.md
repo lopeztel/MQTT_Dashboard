@@ -19,8 +19,10 @@ The main idea is to have this as a centralized dashboard that receives and sends
 
 ## Useful links
 [Installing MQTT broker on Raspberry Pi](https://www.instructables.com/id/Installing-MQTT-BrokerMosquitto-on-Raspberry-Pi/)
+
 [MQTT+Raspberrypi+ESP8266](https://www.instructables.com/id/How-to-Use-MQTT-With-the-Raspberry-Pi-and-ESP8266/)
-[MQTT+Raspberrypi+ESP8266]](https://www.hackster.io/ruchir1674/raspberry-pi-talking-to-esp8266-using-mqtt-ed9037)
+
+[MQTT+Raspberrypi+ESP8266](https://www.hackster.io/ruchir1674/raspberry-pi-talking-to-esp8266-using-mqtt-ed9037)
 ## Changelog
 + Version 1.0
   + Support for temperature topics (humidity, temperature, heat index) from DHT11 sensor
