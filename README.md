@@ -15,11 +15,12 @@ The main idea is to have this as a centralized dashboard that receives and sends
   + Qt Charts
   + Qt virtual keyboard (useful if deploying to Raspberry Pi, must be disabled for Android)
 + [qtmqtt](https://github.com/qt/qtmqtt/releases/tag/v5.12.7) library from Qt, I am using 5.12.7 release version
-+ MQTT broker, mine is local on a Raspberry Pi model 3Bv2
++ MQTT broker, mine is local on a Raspberry Pi model 3B+
 
 ## Useful links
 [Installing MQTT broker on Raspberry Pi](https://www.instructables.com/id/Installing-MQTT-BrokerMosquitto-on-Raspberry-Pi/)
-
+[MQTT+Raspberrypi+ESP8266](https://www.instructables.com/id/How-to-Use-MQTT-With-the-Raspberry-Pi-and-ESP8266/)
+[MQTT+Raspberrypi+ESP8266]](https://www.hackster.io/ruchir1674/raspberry-pi-talking-to-esp8266-using-mqtt-ed9037)
 ## Changelog
 + Version 1.0
   + Support for temperature topics (humidity, temperature, heat index) from DHT11 sensor
@@ -27,13 +28,10 @@ The main idea is to have this as a centralized dashboard that receives and sends
   + Support for RGB control topics (both solid colors and fade)
 + Version 1.1
   + Updated to Qt 5.12.7
-  + Compiled for Raspberry Pi 3Bv2
+  + Compiled for Raspberry Pi 3B+
 
 ## TODO
 + Implement button that terminates application since it runs full screen on Raspberry Pi
-+ Add links to MQTT broker instalation on Raspberry Pi
-+ Add compilation guide for Qt 5.12.7 on Raspberry Pi
-+ Add compilation guide for qtmqtt library for Qt 5.12.7
 + Add reference to code on esp8266 Wemos D1 mini (another repo)
 
 ## Contributing
