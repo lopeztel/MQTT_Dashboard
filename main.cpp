@@ -17,6 +17,9 @@ int main(int argc, char *argv[])
     qmlRegisterUncreatableType<QmlMqttSubscription>("MqttClient", 1, 0, "MqttSubscription", QLatin1String("Subscriptions are read-only"));
 
     QQmlApplicationEngine engine;
+
+    QObject::connect(&engine,&QQmlApplicationEngine::quit,&QApplication::quit);
+
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     engine.load(url);
     if (engine.rootObjects().isEmpty())

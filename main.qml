@@ -38,8 +38,8 @@ ApplicationWindow {
     MqttClient {
         id: client
         clientId: "Qt_MQTT_Dashboard" //change this for android, multiple clients w/same name are a problem
-        username: "pi"
-        password: "<your_password>"
+        username: "pi" //MQTT broker username
+        password: "<your_password>" //MQTT broker password
         cleanSession: true
     }
 
@@ -54,14 +54,11 @@ ApplicationWindow {
                 client.port = portField.text
                 if (client.state === MqttClient.Connected) {
                     client.disconnectFromHost()
-                    tempSubscription.destroy()
                     tempSubscription = 0
-                    humtySubscription.destroy()
                     humtySubscription = 0
-                    heatIdxSubscription.destroy()
                     heatIdxSubscription = 0
-                    relaySubscription.destroy()
                     relaySubscription = 0
+                    Qt.quit()
                 } else {
                     client.connectToHost()
                 }
