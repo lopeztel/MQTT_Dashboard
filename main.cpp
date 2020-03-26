@@ -19,6 +19,7 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
 
     QObject::connect(&engine,&QQmlApplicationEngine::quit,&QApplication::quit);
+    //QObject::connect(&engine,&QQmlApplicationEngine::quit,&QGuiApplication::quit);
 
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     engine.load(url);
