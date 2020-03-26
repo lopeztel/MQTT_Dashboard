@@ -5,8 +5,8 @@ import MqttClient 1.0
 
 Page {
     id: page1
-    width: 480
-    height: 320
+    width: 800
+    height: 480
 
     property alias status: status
     property alias portField: portField
@@ -14,7 +14,7 @@ Page {
     property alias connectButton: connectButton
 
     header: Label {
-        text: qsTr("Input your MQTT broker")
+        text: qsTr("MQTT Broker")
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: Qt.application.font.pixelSize * 2
         padding: 10
@@ -23,12 +23,13 @@ Page {
     TextField {
         id: hostnameField
         y: 0
-        width: 280
+        width: 348
         height: 43
         Layout.fillWidth: true
         text: qsTr("")
+        font.pointSize: 15
         horizontalAlignment: Text.AlignHCenter
-        anchors.horizontalCenterOffset: -91
+        anchors.horizontalCenterOffset: -159
         anchors.horizontalCenter: parent.horizontalCenter
         placeholderText: "<Enter host running MQTT broker>"
         enabled: client.state === MqttClient.Disconnected
@@ -41,6 +42,7 @@ Page {
         width: 397
         height: 48
         text: client.state === MqttClient.Connected ? "Disconnect" : "Connect"
+        font.pointSize: 14
         anchors.horizontalCenter: parent.horizontalCenter
         enabled: (hostnameField.text != ""
                   && portField.text != "") ? true : false
@@ -48,11 +50,12 @@ Page {
 
     TextField {
         id: portField
-        x: 318
+        x: 498
         y: 0
-        width: 154
+        width: 219
         height: 43
         text: qsTr("")
+        font.pointSize: 15
         horizontalAlignment: Text.AlignHCenter
         placeholderText: "<Enter port number>"
         inputMethodHints: Qt.ImhDigitsOnly
@@ -67,6 +70,7 @@ Page {
         height: 37
         padding: 10
         text: qsTr("Label")
+        font.pointSize: 14
         anchors.horizontalCenter: parent.horizontalCenter
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter

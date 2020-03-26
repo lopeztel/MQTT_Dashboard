@@ -10,12 +10,12 @@ import QtQuick.Controls.Material 2.3
 ApplicationWindow {
     id: window
     visible: true
-    width: 480
-    height: 320
-    maximumHeight: 320
-    maximumWidth: 480
-    minimumHeight: 320
-    minimumWidth: 480
+    width: 800
+    height: 480
+    maximumHeight: 480
+    maximumWidth: 800
+    minimumHeight: 480
+    minimumWidth: 800
     Material.accent: Material.Teal
 
     title: qsTr("MQTT Dashboard")
@@ -89,8 +89,8 @@ ApplicationWindow {
                 animationOptions: ChartView.SeriesAnimations
                 x: 8
                 y: 9
-                width: 464
-                height: 212
+                width: 774
+                height: 318
                 Component.onCompleted: startDate = new Date()
                 ValueAxis {
                     id: axisY

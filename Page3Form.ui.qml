@@ -10,24 +10,26 @@ Page {
     property alias solidButton: solidButton
     property alias relaySwitch: relaySwitch
     property alias relaybutton: relaybutton
-    width: 480
-    height: 320
+    width: 800
+    height: 480
 
     Button {
         id: relaybutton
-        x: 12
-        y: 9
-        width: 97
+        x: 140
+        y: 296
+        width: 128
         height: 48
         text: qsTr("Connect")
+        font.pointSize: 14
         enabled: client.state === MqttClient.Connected
     }
 
     Switch {
         id: relaySwitch
-        x: 200
-        y: 9
+        x: 564
+        y: 296
         text: qsTr("Relay")
+        font.pointSize: 14
         enabled: false
         checked: relay
     }
@@ -36,6 +38,8 @@ Page {
         id: red_slider
         x: 29
         y: 103
+        width: 360
+        height: 57
         font.family: "Times New Roman"
         stepSize: 1
         to: 255
@@ -47,6 +51,8 @@ Page {
         id: green_slider
         x: 29
         y: 149
+        width: 360
+        height: 50
         stepSize: 1
         to: 255
         value: 0
@@ -57,6 +63,8 @@ Page {
         id: blue_slider
         x: 29
         y: 192
+        width: 360
+        height: 54
         stepSize: 1
         to: 255
         value: 0
@@ -65,43 +73,45 @@ Page {
 
     Text {
         id: element
-        x: 12
+        x: 107
         y: 68
         width: 234
         height: 38
         text: qsTr("RGB LED controls")
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
-        font.pixelSize: 18
+        font.pixelSize: 24
     }
 
     Text {
         id: element1
-        x: 235
+        x: 502
         y: 68
         width: 234
         height: 38
         text: qsTr("RGB LED effects")
-        font.pixelSize: 18
+        font.pixelSize: 24
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
     }
 
     Button {
         id: solidButton
-        x: 299
+        x: 549
         y: 112
         text: qsTr("Solid Color")
+        font.pointSize: 14
         enabled: false
     }
 
     Button {
         id: fadeButton
-        x: 299
+        x: 566
         y: 176
         width: 106
         height: 48
         text: qsTr("Fade")
+        font.pointSize: 14
         enabled: false
     }
 }

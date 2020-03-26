@@ -5,8 +5,8 @@ import QtQuick.Layouts 1.1
 import MqttClient 1.0
 
 Page {
-    width: 480
-    height: 320
+    width: 800
+    height: 480
     property alias heatIdxLabel: heatIdxLabel
     property alias humtyLabel: humtyLabel
     property alias tempLabel: tempLabel
@@ -19,33 +19,37 @@ Page {
 
     Button {
         id: subscribebutton
-        x: 7
-        y: 221
+        x: 23
+        y: 387
         text: qsTr("Connect")
+        font.pointSize: 14
         enabled: client.state === MqttClient.Connected
     }
 
     Label {
         id: tempLabel
-        x: 104
-        y: 236
+        x: 181
+        y: 401
         text: qsTr("Temp")
+        font.pointSize: 14
         visible: client.state === MqttClient.Connected
     }
 
     Label {
         id: humtyLabel
-        x: 228
-        y: 236
+        x: 369
+        y: 401
         text: qsTr("Humty")
+        font.pointSize: 14
         visible: client.state === MqttClient.Connected
     }
 
     Label {
         id: heatIdxLabel
-        x: 352
-        y: 236
+        x: 552
+        y: 401
         text: qsTr("HeatIdx")
+        font.pointSize: 14
         visible: client.state === MqttClient.Connected
     }
 }
