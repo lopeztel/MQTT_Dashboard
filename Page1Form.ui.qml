@@ -1,10 +1,9 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.5
-import QtQuick.Layouts 1.1
+import QtQuick.Layouts 1.12
 import MqttClient 1.0
 
 Page {
-    id: page1
     width: 800
     height: 480
 
@@ -22,9 +21,9 @@ Page {
 
     TextField {
         id: hostnameField
-        y: 0
+        y: 6
         width: 348
-        height: 43
+        height: 48
         Layout.fillWidth: true
         text: qsTr("")
         font.pointSize: 15
@@ -38,22 +37,23 @@ Page {
     Button {
         id: connectButton
         x: 36
-        y: 49
+        y: 60
         width: 397
         height: 48
         text: client.state === MqttClient.Connected ? "Disconnect" : "Connect"
+        anchors.horizontalCenterOffset: 0
         font.pointSize: 14
         anchors.horizontalCenter: parent.horizontalCenter
-        enabled: (hostnameField.text != ""
-                  && portField.text != "") ? true : false
+        enabled: (hostnameField.text !== ""
+                  && portField.text !== "") ? true : false
     }
 
     TextField {
         id: portField
         x: 498
-        y: 0
+        y: 6
         width: 219
-        height: 43
+        height: 48
         text: qsTr("")
         font.pointSize: 15
         horizontalAlignment: Text.AlignHCenter
@@ -65,7 +65,7 @@ Page {
     Label {
         id: status
         x: 196
-        y: 104
+        y: 115
         width: 138
         height: 37
         padding: 10
@@ -73,16 +73,17 @@ Page {
         font.pointSize: 14
         anchors.horizontalCenter: parent.horizontalCenter
         verticalAlignment: Text.AlignVCenter
+        anchors.horizontalCenterOffset: 0
         horizontalAlignment: Text.AlignHCenter
         //enabled: client.state === MqttClient.Connected
-        color: (client.state != MqttClient.Connected) ? "#000000" : "#66CD00"
-        visible: (client.state != MqttClient.Connecting)
+        color: (client.state !== MqttClient.Connected) ? "#000000" : "#66CD00"
+        visible: (client.state !== MqttClient.Connecting)
     }
 
     BusyIndicator {
         id: busyIndicator
         x: 211
-        y: 93
+        y: 104
         running: client.state === MqttClient.Connecting
     }
 }

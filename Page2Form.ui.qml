@@ -1,17 +1,17 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.5
-import QtQuick.Layouts 1.1
-//import QtCharts 2.3
 import MqttClient 1.0
 
 Page {
-    width: 800
-    height: 480
+
     property alias heatIdxLabel: heatIdxLabel
     property alias humtyLabel: humtyLabel
     property alias tempLabel: tempLabel
     property alias messageModel: messageModel
     property alias subscribebutton: subscribebutton
+
+    width: 800
+    height: 480
 
     ListModel {
         id: messageModel
@@ -31,6 +31,7 @@ Page {
         x: 181
         y: 401
         text: qsTr("Temp")
+        color: "white"
         font.pointSize: 14
         visible: client.state === MqttClient.Connected
     }
@@ -40,6 +41,7 @@ Page {
         x: 369
         y: 401
         text: qsTr("Humty")
+        color: "white"
         font.pointSize: 14
         visible: client.state === MqttClient.Connected
     }
@@ -49,6 +51,7 @@ Page {
         x: 552
         y: 401
         text: qsTr("HeatIdx")
+        color: "white"
         font.pointSize: 14
         visible: client.state === MqttClient.Connected
     }

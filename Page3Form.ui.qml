@@ -3,6 +3,9 @@ import QtQuick.Controls 2.5
 import MqttClient 1.0
 
 Page {
+    width: 800
+    height: 480
+    property alias rainbowButton: rainbowButton
     property alias blue_slider: blue_slider
     property alias green_slider: green_slider
     property alias red_slider: red_slider
@@ -10,8 +13,6 @@ Page {
     property alias solidButton: solidButton
     property alias relaySwitch: relaySwitch
     property alias relaybutton: relaybutton
-    width: 800
-    height: 480
 
     Button {
         id: relaybutton
@@ -27,7 +28,7 @@ Page {
     Switch {
         id: relaySwitch
         x: 564
-        y: 296
+        y: 336
         text: qsTr("Relay")
         font.pointSize: 14
         enabled: false
@@ -78,6 +79,7 @@ Page {
         width: 234
         height: 38
         text: qsTr("RGB LED controls")
+        color: "white"
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: 24
@@ -90,6 +92,7 @@ Page {
         width: 234
         height: 38
         text: qsTr("RGB LED effects")
+        color: "white"
         font.pixelSize: 24
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
@@ -106,11 +109,22 @@ Page {
 
     Button {
         id: fadeButton
-        x: 566
+        x: 549
         y: 176
-        width: 106
+        width: 140
         height: 48
         text: qsTr("Fade")
+        font.pointSize: 14
+        enabled: false
+    }
+
+    Button {
+        id: rainbowButton
+        x: 549
+        y: 242
+        width: 140
+        height: 48
+        text: qsTr("Rainbow")
         font.pointSize: 14
         enabled: false
     }

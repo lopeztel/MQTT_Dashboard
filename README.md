@@ -4,9 +4,15 @@ This project is something I worked on my spare time and I hope it is useful for 
 
 The main idea is to have this as a centralized dashboard that receives and sends data from/to multiple IoT modules (ESP8266 or ESP32 based) by connecting to a MQTT broker.
 
+##V 1.1
+
 ![Android](images/Desktop_Android.jpg)
+
 ![RaspberryPi](images/IMG_20200223_200555277.jpg)
 
+##V 1.2
+
+![NewTheme](images/dashboard_demo.gif)
 
 ## Requirements
 + [Qt](https://www.qt.io/) version 5.12.7, make sure to install:
@@ -31,6 +37,9 @@ The main idea is to have this as a centralized dashboard that receives and sends
 + Version 1.1
   + Updated to Qt 5.12.7
   + Compiled for Raspberry Pi 3B+
++ Version 1.2
+  + Override for Material Design thema
+  + Tweaked for RGB Lamp usage
 
 ## TODO
 + Implement button that terminates application since it runs full screen on Raspberry Pi

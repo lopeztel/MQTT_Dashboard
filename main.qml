@@ -1,11 +1,8 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.5
-import QtQuick.VirtualKeyboard 2.4 //comment for Android
+import QtQuick.VirtualKeyboard 2.4 //comment for android
 import MqttClient 1.0
-import QtQuick.Window 2.2
-import QtQuick.Layouts 1.1
 import QtCharts 2.3
-import QtQuick.Controls.Material 2.3
 
 ApplicationWindow {
     id: window
@@ -16,7 +13,6 @@ ApplicationWindow {
     maximumWidth: 800
     minimumHeight: 480
     minimumWidth: 800
-    Material.accent: Material.Teal
 
     title: qsTr("MQTT Dashboard")
 
@@ -33,13 +29,13 @@ ApplicationWindow {
     property bool firstHumty: true
     property int heatIdxSamples : 0
     property bool firstHeatIdx : true
-    property var startDate
+//    property var startDate
 
     MqttClient {
         id: client
         clientId: "Qt_MQTT_Dashboard" //change this for android, multiple clients w/same name are a problem
         username: "pi" //MQTT broker username
-        password: "<your_password>" //MQTT broker password
+        password: "D3vi@ntart" //MQTT broker password
         cleanSession: true
     }
 
@@ -91,7 +87,7 @@ ApplicationWindow {
                 y: 9
                 width: 774
                 height: 318
-                Component.onCompleted: startDate = new Date()
+//                Component.onCompleted: startDate = new Date()
                 ValueAxis {
                     id: axisY
                     //min: 15.0
@@ -221,32 +217,33 @@ ApplicationWindow {
                     relay = false
                 }
             }
-            function solidMessage(payload){
-                if (payload !==0){
-                    solidButton.enabled = true
-                }else{
-                    solidButton.enabled = false
-                }
-            }
-            function fadeMessage(payload){
-                if (payload !==0){
-                    fadeButton.enabled = true
-                }else{
-                    fadeButton.enabled = false
-                }
-            }
+//            function solidMessage(payload){ //TODO: both buttons are anabled by default
+//                if (payload){
+//                    solidButton.enabled = false
+//                }else{
+//                    solidButton.enabled = true
+//                }
+//            }
+//            function fadeMessage(payload){
+//                if (payload){
+//                    fadeButton.enabled = false
+//                }else{
+//                    fadeButton.enabled = true
+//                }
+//            }
 
             relaybutton.onClicked: {
                 relaySubscription = client.subscribe(qsTr("/mqtt/relay"))
                 relaySubscription.messageReceived.connect(relayMessage)
-                solidSubscription = client.subscribe(qsTr("/mqtt/lights/solid"))
-                solidSubscription.messageReceived.connect(solidMessage)
-                fadeSubscription = client.subscribe(qsTr("/mqtt/lights/fade"))
-                fadeSubscription.messageReceived.connect(fadeMessage)
+//                solidSubscription = client.subscribe(qsTr("/mqtt/lights/solid"))
+//                solidSubscription.messageReceived.connect(solidMessage)
+//                fadeSubscription = client.subscribe(qsTr("/mqtt/lights/fade"))
+//                fadeSubscription.messageReceived.connect(fadeMessage)
                 relaySwitch.enabled = true
                 relaybutton.enabled = false
                 solidButton.enabled = true
                 fadeButton.enabled = true
+                rainbowButton.enabled = true
             }
 
             relaySwitch.onReleased: {
@@ -265,6 +262,10 @@ ApplicationWindow {
                 red_slider.enabled = true
                 green_slider.enabled = true
                 blue_slider.enabled = true
+
+                solidButton.enabled = false
+                fadeButton.enabled = true
+                rainbowButton.enabled = true
             }
             red_slider.onPressedChanged: {
                 if (!red_slider.pressed){
@@ -287,6 +288,21 @@ ApplicationWindow {
                 red_slider.enabled = false
                 green_slider.enabled = false
                 blue_slider.enabled = false
+
+                fadeButton.enabled = false
+                solidButton.enabled = true
+                rainbowButton.enabled = true
+            }
+            rainbowButton.onClicked: {
+                client.publish(qsTr("/mqtt/lights/rainbow"),String.fromCharCode(1),2,false)
+                //client.publish(qsTr("/mqtt/lights/solid"),String.fromCharCode(0),2,false)
+                red_slider.enabled = false
+                green_slider.enabled = false
+                blue_slider.enabled = false
+
+                fadeButton.enabled = true
+                solidButton.enabled = true
+                rainbowButton.enabled = false
             }
         }
     }
@@ -307,8 +323,8 @@ ApplicationWindow {
     }
 
 //Comment Input Panel section for Android ....
-
     InputPanel {
+        enabled: Qt.platform !== "android"
         id: inputPanel
         z: 99
         x: 0
